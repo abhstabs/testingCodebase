@@ -41,4 +41,3 @@ public class S3SinkExample {
         s3Client.putObject(request);
     }
 }
-

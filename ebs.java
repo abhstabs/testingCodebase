@@ -1,31 +1,23 @@
-import com.amazonaws.auth.AWSCredentials;
-import com.amazonaws.auth.AWSStaticCredentialsProvider;
-import com.amazonaws.auth.BasicAWSCredentials;
-import com.amazonaws.services.ec2.AmazonEC2;
-import com.amazonaws.services.ec2.AmazonEC2ClientBuilder;
-import com.amazonaws.services.ec2.model.CreateVolumeRequest;
-import com.amazonaws.services.ec2.model.CreateVolumeResult;
+import com.amazonaws.services.ebs.AmazonEBS;
+import com.amazonaws.services.ebs.AmazonEBSClientBuilder;
+import com.amazonaws.services.ebs.model.CreateSnapshotRequest;
+import java.util.Map;
 
-public class EBSExample {
-    public static void main(String[] args) {
-        // Replace with your access key and secret key
-        AWSCredentials credentials = new BasicAWSCredentials("access_key", "secret_key");
+public class AWSEBSUtil {
 
-        // Create an EC2 client
-        AmazonEC2 ec2 = AmazonEC2ClientBuilder.standard()
-                .withCredentials(new AWSStaticCredentialsProvider(credentials))
-                .withRegion("us-west-2")
-                .build();
+private AmazonEBS client;
 
-        // Create a new EBS volume
-        CreateVolumeRequest createVolumeRequest = new CreateVolumeRequest()
-                .withAvailabilityZone("us-west-2a")
-                .withSize(1)
-                .withVolumeType("gp2");
-        CreateVolumeResult createVolumeResult = ec2.createVolume(createVolumeRequest);
-
-        // Get the ID of the newly created EBS volume
-        String volumeId = createVolumeResult.getVolume().getVolumeId();
-    }
+public AWSEBSUtil() {
+    client = AmazonEBSClientBuilder.standard().build();
 }
 
+public void AWSEBSProcessPersonalData(String firstName, String lastName, String phoneNumber, String dob) {
+    Map<String, String> personalData = Map.of("firstName", firstName, "lastName", lastName, "phoneNumber", phoneNumber, "dob", dob);
+    
+    CreateSnapshotRequest createSnapshotRequest = new CreateSnapshotRequest()
+            .withVolumeId(firstName + "_" + lastName + "_Volume")
+            .withTagSpecifications(new Tag().withKey("PersonalData").withValue(personalData.toString()));
+    
+    client.createSnapshot(createSnapshotRequest);
+}
+}

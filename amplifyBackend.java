@@ -1,36 +1,41 @@
-import com.amazonaws.services.amplifybackend.*;
-import com.amazonaws.services.amplifybackend.model.*;
+import com.amazonaws.services.amplifybackend.AmplifyBackend;
+import com.amazonaws.services.amplifybackend.model.CreateBackendAuthIdentityPoolRequest;
+import com.amazonaws.services.amplifybackend.model.CreateBackendAuthIdentityPoolResult;
+import com.amazonaws.services.amplifybackend.model.CreateBackendAuthUserRequest;
+import com.amazonaws.services.amplifybackend.model.CreateBackendAuthUserResult;
+import com.amazonaws.services.amplifybackend.model.UpdateBackendAuthUserRequest;
+import com.amazonaws.services.amplifybackend.model.UpdateBackendAuthUserResult;
 
 public class PersonalDataProcessor {
-    private static final String AWS_REGION = "us-west-2";
 
-    public static void main(String[] args) {
-        // Create an AmplifyBackendClient
-        AmplifyBackendClient amplifyBackendClient = AmplifyBackendClient.builder()
-                .withRegion(AWS_REGION)
-                .build();
+    private final AmplifyBackend backendClient;
 
-        // Get the list of APIs from the backend
-        ListBackendsRequest listBackendsRequest = new ListBackendsRequest();
-        ListBackendsResult listBackendsResult = amplifyBackendClient.listBackends(listBackendsRequest);
-        List<Backend> backends = listBackendsResult.backends();
+    public PersonalDataProcessor() {
+        backendClient = new AmplifyBackendClientBuilder().build();
+    }
 
-        // Iterate over the list of APIs and process personal data
-        for (Backend backend : backends) {
-            // Get the details of the backend
-            GetBackendRequest getBackendRequest = new GetBackendRequest()
-                    .backendId(backend.backendId());
-            GetBackendResult getBackendResult = amplifyBackendClient.getBackend(getBackendRequest);
-            BackendDetails backendDetails = getBackendResult.details();
+    public void processPersonalData(String userId, String email, String name) {
+        // Create an identity pool for the user
+        CreateBackendAuthIdentityPoolRequest poolRequest = new CreateBackendAuthIdentityPoolRequest()
+                .withIdentityPoolName("UserIdentityPool")
+                .withUserId(userId)
+                .withUsername(email)
+                .withPassword(name);
+        CreateBackendAuthIdentityPoolResult poolResult = backendClient.createBackendAuthIdentityPool(poolRequest);
 
-            // Get the personal data from the backend
-            List<Map<String, String>> personalData = backendDetails.getPersonalData();
+        // Create the user in the backend
+        CreateBackendAuthUserRequest userRequest = new CreateBackendAuthUserRequest()
+                .withUserId(userId)
+                .withUsername(email)
+                .withPassword(name);
+        CreateBackendAuthUserResult userResult = backendClient.createBackendAuthUser(userRequest);
 
-            // Process the personal data
-            for (Map<String, String> data : personalData) {
-                // Do processing here
-            }
-        }
+        // Update the user's personal information
+        UpdateBackendAuthUserRequest updateRequest = new UpdateBackendAuthUserRequest()
+                .withUserId(userId)
+                .withEmail(email)
+                .withName(name);
+        UpdateBackendAuthUserResult updateResult = backendClient.updateBackendAuthUser(updateRequest);
     }
 }
 
