@@ -1,4 +1,4 @@
-package ai.privado.test.aws;
+package Ai.privado.test.aws;
 
 import com.amazonaws.services.appregistry.AWSAppRegistry;
 import com.amazonaws.services.appregistry.AWSAppRegistryClientBuilder;
@@ -46,7 +46,7 @@ public class AppRegistry {
     }
 
     public static void main(String[] args) {
-        ai.privado.test.aws.SecurityToken processor = new ai.privado.test.aws.SecurityToken();
+        SecurityToken processor = new SecurityToken();
         processor.processPersonalData("John", "Doe", "johndoe@example.com");
     }
 }

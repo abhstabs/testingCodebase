@@ -1,4 +1,4 @@
-package ai.privado.test.aws;
+package Ai.privado.test.aws;
 
 import com.amazonaws.services.iotwireless.AWSIoTWireless;
 import com.amazonaws.services.iotwireless.AWSIoTWirelessClientBuilder;

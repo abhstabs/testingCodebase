@@ -1,4 +1,4 @@
-package ai.privado.test.aws;
+package Ai.privado.test.aws;
 
 import com.amazonaws.services.lexruntime.AmazonLexRuntime;
 import com.amazonaws.services.lexruntime.AmazonLexRuntimeClientBuilder;

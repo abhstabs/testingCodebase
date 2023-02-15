@@ -1,4 +1,4 @@
-package ai.privado.test.aws;
+package Ai.privado.test.aws;
 
 import com.amazonaws.services.chimesdkvoice.AmazonChimeSDKVoice;
 import com.amazonaws.services.chimesdkvoice.AmazonChimeSDKVoiceClientBuilder;

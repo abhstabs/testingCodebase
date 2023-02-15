@@ -1,4 +1,4 @@
-package ai.privado.test.aws;
+package Ai.privado.test.aws;
 
 import com.amazonaws.services.transcribemedical.AWSTranscribeMedical;
 import com.amazonaws.services.transcribemedical.AWSTranscribeMedicalClientBuilder;

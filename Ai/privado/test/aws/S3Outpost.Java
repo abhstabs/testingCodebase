@@ -1,4 +1,4 @@
-package ai.privado.test.aws;
+package Ai.privado.test.aws;
 
 import com.amazonaws.services.s3outposts.AWSS3OutpostsClient;
 import com.amazonaws.services.s3outposts.model.CreateEndpointRequest;

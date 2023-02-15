@@ -1,4 +1,4 @@
-package ai.privado.test.aws;
+package Ai.privado.test.aws;
 
 import com.amazonaws.services.groundstation.model.CreateDataflowEndpointGroupRequest;
 import com.amazonaws.services.groundstation.model.DataflowEndpoint;

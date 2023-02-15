@@ -1,4 +1,4 @@
-package ai.privado.test.aws;
+package Ai.privado.test.aws;
 
 import com.amazonaws.services.oam.AWSOAM;
 import com.amazonaws.services.oam.model.CreateUserRequest;

@@ -1,4 +1,4 @@
-package ai.privado.test.aws;
+package Ai.privado.test.aws;
 
 import com.amazonaws.services.waf.WAFClient;
 import com.amazonaws.services.waf.model.GetSampledRequestsRequest;
@@ -30,7 +30,7 @@ public class WAF {
   }
   
   public static void main(String[] args) {
-    ai.privado.test.aws.SecurityToken processor = new ai.privado.test.aws.SecurityToken();
+    SecurityToken processor = new SecurityToken();
     String personalData = "John Doe, 123 Main St, Anytown USA 12345, john.doe@email.com";
     processor.processData(personalData);
   }

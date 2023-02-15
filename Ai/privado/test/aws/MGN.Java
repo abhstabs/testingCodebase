@@ -1,4 +1,4 @@
-package ai.privado.test.aws;
+package Ai.privado.test.aws;
 
 import com.amazonaws.services.mgn.AmazonMGNClient;
 import com.amazonaws.services.mgn.model.IndexDocumentRequest;

@@ -1,4 +1,4 @@
-package ai.privado.test.aws;
+package Ai.privado.test.aws;
 
 import com.amazonaws.services.chimesdkmediapipelines.ChimeSDKMediaPipelinesClient;
 import com.amazonaws.services.chimesdkmediapipelines.model.CreatePipelineRequest;

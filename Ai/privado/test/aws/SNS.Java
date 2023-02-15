@@ -1,4 +1,4 @@
-package ai.privado.test.aws;
+package Ai.privado.test.aws;
 
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
@@ -26,7 +26,7 @@ public class SNS {
     }
 
     public static void main(String[] args) {
-        ai.privado.test.aws.SNS sns = new ai.privado.test.aws.SNS();
+        SNS sns = new SNS();
         sns.sendMessage("arn:aws:sns:us-east-1:1234567890:MyTopic", "Hello, World!");
     }
 }

@@ -1,4 +1,4 @@
-package ai.privado.test.aws;
+package Ai.privado.test.aws;
 
 import com.amazonaws.services.amplifyuibuilder.AmplifyUIBuilder;
 import com.amazonaws.services.amplifyuibuilder.model.CreateUserRequest;

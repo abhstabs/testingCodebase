@@ -1,4 +1,4 @@
-package ai.privado.test.aws;
+package Ai.privado.test.aws;
 
 import com.amazonaws.services.xray.AWSXRay;
 import com.amazonaws.services.xray.AWSXRayClientBuilder;
