@@ -1,0 +1,18 @@
+
+
+    package ai.privado.test.aliyun;
+
+    import com.aliyun.market.CloudMarketplace;
+
+    public class CloudMarketplaceTest {
+        public static void main(String[] args) {
+            String firstName = "John";
+            String lastName = "Doe";
+            String phoneNumber = "1234567890";
+            String DOB = "01/01/2000";
+
+            CloudMarketplace cloudMarketplace = new CloudMarketplace();
+            cloudMarketplace.sendPersonalData(firstName, lastName, phoneNumber, DOB);
+        }
+    }
+    
